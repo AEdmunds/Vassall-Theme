@@ -1,0 +1,18 @@
+body {
+  background: black; }
+
+.navbar .container, .navbar .nav .active > a {
+  background: black; }
+
+body, p, a {
+  color: white; }
+
+h1, h2, h3, h4, h5, h6 {
+  color: white; }
+
+.navbar .nav > li a {
+  color: white; }
+
+.logo {
+  background-image: url(.../content/img/vassall-logo-bw.gif); }
+

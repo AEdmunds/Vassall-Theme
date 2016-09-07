@@ -6,14 +6,14 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{8F68A0D7-347F-46C1-A009-DDB1E5B8741F}</ProjectGuid>
+    <ProjectGuid>{426106C2-F084-4739-9C08-2A7E2814C1CB}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BizStrap.1.3</RootNamespace>
-    <AssemblyName>BizStrap.1.3</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
-    <MvcBuildViews>false</MvcBuildViews>
+    <RootNamespace>Dotnest-BizStrap.1.3</RootNamespace>
+    <AssemblyName>Dotnest-BizStrap.1.3</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews Condition=" '$(BuildViews)' == 'true' ">true</MvcBuildViews>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>4.0</OldToolsVersion>
@@ -34,7 +34,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>..\..\..\OrchardBasicCorrectness.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -49,49 +49,52 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Orchard.Framework, Version=1.9.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Orchard\bin\Debug\Orchard.Framework.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.ComponentModel.DataAnnotations">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.DynamicData" />
-    <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Bootstrap\.gitattributes" />
-    <Content Include="Content\Bootstrap\.gitignore" />
+    <Content Include="Content\Bootstrap\.editorconfig" />
+    <Content Include="Content\Bootstrap\.travis.yml" />
+    <Content Include="Content\Bootstrap\bower.json" />
+    <Content Include="Content\Bootstrap\CNAME" />
+    <Content Include="Content\Bootstrap\composer.json" />
+    <Content Include="Content\Bootstrap\CONTRIBUTING.md" />
     <Content Include="Content\Bootstrap\dist\css\bootstrap-theme.css" />
+    <Content Include="Content\Bootstrap\dist\css\bootstrap-theme.css.map" />
     <Content Include="Content\Bootstrap\dist\css\bootstrap-theme.min.css" />
     <Content Include="Content\Bootstrap\dist\css\bootstrap.css" />
+    <Content Include="Content\Bootstrap\dist\css\bootstrap.css.map" />
     <Content Include="Content\Bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="Content\Bootstrap\dist\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\Bootstrap\dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Bootstrap\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\Bootstrap\dist\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\Bootstrap\dist\js\bootstrap.js" />
     <Content Include="Content\Bootstrap\dist\js\bootstrap.min.js" />
-    <Content Include="Content\Bootstrap\dist\js\npm.js" />
     <Content Include="Content\Bootstrap\docs\about.html" />
     <Content Include="Content\Bootstrap\docs\apple-touch-icon-precomposed.png" />
-    <Content Include="Content\Bootstrap\docs\apple-touch-icon.png" />
     <Content Include="Content\Bootstrap\docs\assets\brand\bootstrap-outline.svg" />
     <Content Include="Content\Bootstrap\docs\assets\brand\bootstrap-punchout.svg" />
     <Content Include="Content\Bootstrap\docs\assets\brand\bootstrap-solid.svg" />
     <Content Include="Content\Bootstrap\docs\assets\css\docs.min.css" />
-    <Content Include="Content\Bootstrap\docs\assets\css\src\anchor.css" />
-    <Content Include="Content\Bootstrap\docs\assets\css\src\docs.css" />
-    <Content Include="Content\Bootstrap\docs\assets\css\src\pygments-manni.css" />
     <Content Include="Content\Bootstrap\docs\assets\css\_src\docs.css" />
     <Content Include="Content\Bootstrap\docs\assets\css\_src\pygments-manni.css" />
     <Content Include="Content\Bootstrap\docs\assets\flash\ZeroClipboard.swf" />
@@ -104,17 +107,6 @@
     <Content Include="Content\Bootstrap\docs\assets\js\ie10-viewport-bug-workaround.js" />
     <Content Include="Content\Bootstrap\docs\assets\js\ie8-responsive-file-warning.js" />
     <Content Include="Content\Bootstrap\docs\assets\js\raw-files.min.js" />
-    <Content Include="Content\Bootstrap\docs\assets\js\src\application.js" />
-    <Content Include="Content\Bootstrap\docs\assets\js\src\customizer.js" />
-    <Content Include="Content\Bootstrap\docs\assets\js\vendor\anchor.js" />
-    <Content Include="Content\Bootstrap\docs\assets\js\vendor\autoprefixer.js" />
-    <Content Include="Content\Bootstrap\docs\assets\js\vendor\Blob.js" />
-    <Content Include="Content\Bootstrap\docs\assets\js\vendor\FileSaver.js" />
-    <Content Include="Content\Bootstrap\docs\assets\js\vendor\holder.js" />
-    <Content Include="Content\Bootstrap\docs\assets\js\vendor\jszip.min.js" />
-    <Content Include="Content\Bootstrap\docs\assets\js\vendor\less.min.js" />
-    <Content Include="Content\Bootstrap\docs\assets\js\vendor\uglify.min.js" />
-    <Content Include="Content\Bootstrap\docs\assets\js\vendor\ZeroClipboard.min.js" />
     <Content Include="Content\Bootstrap\docs\assets\js\_src\application.js" />
     <Content Include="Content\Bootstrap\docs\assets\js\_src\customizer.js" />
     <Content Include="Content\Bootstrap\docs\assets\js\_vendor\blob.js" />
@@ -128,14 +120,15 @@
     <Content Include="Content\Bootstrap\docs\components.html" />
     <Content Include="Content\Bootstrap\docs\css.html" />
     <Content Include="Content\Bootstrap\docs\customize.html" />
-    <Content Include="Content\Bootstrap\docs\dist\css\bootstrap-theme.css" />
+    <Content Include="Content\Bootstrap\docs\dist\css\bootstrap-theme.css.map" />
     <Content Include="Content\Bootstrap\docs\dist\css\bootstrap-theme.min.css" />
-    <Content Include="Content\Bootstrap\docs\dist\css\bootstrap.css" />
+    <Content Include="Content\Bootstrap\docs\dist\css\bootstrap.css.map" />
     <Content Include="Content\Bootstrap\docs\dist\css\bootstrap.min.css" />
+    <Content Include="Content\Bootstrap\docs\dist\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\Bootstrap\docs\dist\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Content\Bootstrap\docs\dist\js\bootstrap.js" />
+    <Content Include="Content\Bootstrap\docs\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\Bootstrap\docs\dist\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\Bootstrap\docs\dist\js\bootstrap.min.js" />
-    <Content Include="Content\Bootstrap\docs\dist\js\npm.js" />
     <Content Include="Content\Bootstrap\docs\examples\blog\blog.css" />
     <Content Include="Content\Bootstrap\docs\examples\blog\index.html" />
     <Content Include="Content\Bootstrap\docs\examples\carousel\carousel.css" />
@@ -199,9 +192,12 @@
     <Content Include="Content\Bootstrap\docs\getting-started.html" />
     <Content Include="Content\Bootstrap\docs\index.html" />
     <Content Include="Content\Bootstrap\docs\javascript.html" />
+    <Content Include="Content\Bootstrap\docs\LICENSE" />
     <Content Include="Content\Bootstrap\docs\migration.html" />
     <Content Include="Content\Bootstrap\docs\robots.txt" />
     <Content Include="Content\Bootstrap\docs\sitemap.xml" />
+    <Content Include="Content\Bootstrap\docs\_data\glyphicons.yml" />
+    <Content Include="Content\Bootstrap\docs\_data\showcase.yml" />
     <Content Include="Content\Bootstrap\docs\_includes\ads.html" />
     <Content Include="Content\Bootstrap\docs\_includes\components\alerts.html" />
     <Content Include="Content\Bootstrap\docs\_includes\components\badges.html" />
@@ -248,7 +244,6 @@
     <Content Include="Content\Bootstrap\docs\_includes\getting-started\license.html" />
     <Content Include="Content\Bootstrap\docs\_includes\getting-started\template.html" />
     <Content Include="Content\Bootstrap\docs\_includes\getting-started\third-party-support.html" />
-    <Content Include="Content\Bootstrap\docs\_includes\getting-started\tools.html" />
     <Content Include="Content\Bootstrap\docs\_includes\getting-started\translations.html" />
     <Content Include="Content\Bootstrap\docs\_includes\getting-started\whats-included.html" />
     <Content Include="Content\Bootstrap\docs\_includes\header.html" />
@@ -276,12 +271,15 @@
     <Content Include="Content\Bootstrap\docs\_includes\social-buttons.html" />
     <Content Include="Content\Bootstrap\docs\_layouts\default.html" />
     <Content Include="Content\Bootstrap\docs\_layouts\home.html" />
+    <Content Include="Content\Bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\Bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\Bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\Bootstrap\Gruntfile.js" />
-    <Content Include="Content\Bootstrap\grunt\bs-commonjs-generator.js" />
     <Content Include="Content\Bootstrap\grunt\bs-glyphicons-data-generator.js" />
     <Content Include="Content\Bootstrap\grunt\bs-lessdoc-parser.js" />
     <Content Include="Content\Bootstrap\grunt\bs-raw-files-generator.js" />
+    <Content Include="Content\Bootstrap\js\.jshintrc" />
     <Content Include="Content\Bootstrap\js\affix.js" />
     <Content Include="Content\Bootstrap\js\alert.js" />
     <Content Include="Content\Bootstrap\js\button.js" />
@@ -321,75 +319,6 @@
     <Content Include="Content\Bootstrap\js\tests\visual\tooltip.html" />
     <Content Include="Content\Bootstrap\js\tooltip.js" />
     <Content Include="Content\Bootstrap\js\transition.js" />
-    <Content Include="Content\Bootstrap\package.js" />
-    <Content Include="Content\Bootstrap\test-infra\requirements.txt" />
-    <Content Include="Images\favicon.ico" />
-    <Content Include="Styles\icon-fonts.css" />
-    <Content Include="Styles\site.css" />
-    <Content Include="ThemeZonePreview.png" />
-    <Content Include="Web.config" />
-    <Content Include="Styles\Web.config" />
-    <Content Include="Content\Web.config" />
-    <Content Include="Theme.txt" />
-    <Content Include="Theme.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Content\Bootstrap\docs\assets\ico\" />
-    <Folder Include="Content\Bootstrap\docs\grunt\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Document.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Layout.cshtml">
-      <SubType>
-      </SubType>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Branding.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Bootstrap\.editorconfig" />
-    <Content Include="Content\Bootstrap\.travis.yml" />
-    <Content Include="Content\Bootstrap\bower.json" />
-    <Content Include="Content\Bootstrap\CNAME" />
-    <Content Include="Content\Bootstrap\composer.json" />
-    <Content Include="Content\Bootstrap\CONTRIBUTING.md" />
-    <Content Include="Content\Bootstrap\dist\css\bootstrap-theme.css.map" />
-    <Content Include="Content\Bootstrap\dist\css\bootstrap.css.map" />
-    <Content Include="Content\Bootstrap\dist\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\Bootstrap\dist\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="Content\Bootstrap\dist\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Content\Bootstrap\dist\fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="Content\Bootstrap\docs\dist\css\bootstrap-theme.css.map" />
-    <Content Include="Content\Bootstrap\docs\dist\css\bootstrap.css.map" />
-    <Content Include="Content\Bootstrap\docs\dist\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\Bootstrap\docs\dist\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="Content\Bootstrap\docs\dist\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Content\Bootstrap\docs\dist\fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="Content\Bootstrap\docs\LICENSE" />
-    <Content Include="Content\Bootstrap\docs\_data\browser-bugs.yml" />
-    <Content Include="Content\Bootstrap\docs\_data\core-team.yml" />
-    <Content Include="Content\Bootstrap\docs\_data\glyphicons.yml" />
-    <Content Include="Content\Bootstrap\docs\_data\sass-team.yml" />
-    <Content Include="Content\Bootstrap\docs\_data\showcase.yml" />
-    <Content Include="Content\Bootstrap\docs\_data\translations.yml" />
-    <Content Include="Content\Bootstrap\docs\_jade\customizer-nav.jade" />
-    <Content Include="Content\Bootstrap\docs\_jade\customizer-variables.jade" />
-    <Content Include="Content\Bootstrap\docs\_plugins\bridge.rb" />
-    <Content Include="Content\Bootstrap\docs\_plugins\bugify.rb" />
-    <Content Include="Content\Bootstrap\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\Bootstrap\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="Content\Bootstrap\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Content\Bootstrap\fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="Content\Bootstrap\grunt\.jshintrc" />
-    <Content Include="Content\Bootstrap\grunt\configBridge.json" />
-    <Content Include="Content\Bootstrap\grunt\sauce_browsers.yml" />
-    <Content Include="Content\Bootstrap\js\.jscsrc" />
-    <Content Include="Content\Bootstrap\js\.jshintrc" />
-    <Content Include="Content\Bootstrap\js\tests\README.md" />
-    <Content Include="Content\Bootstrap\js\tests\unit\.jshintrc" />
     <Content Include="Content\Bootstrap\less\.csscomb.json" />
     <Content Include="Content\Bootstrap\less\.csslintrc" />
     <Content Include="Content\Bootstrap\less\alerts.less" />
@@ -412,6 +341,292 @@
     <Content Include="Content\Bootstrap\less\list-group.less" />
     <Content Include="Content\Bootstrap\less\media.less" />
     <Content Include="Content\Bootstrap\less\mixins.less" />
+    <Content Include="Content\Bootstrap\less\modals.less" />
+    <Content Include="Content\Bootstrap\less\navbar.less" />
+    <Content Include="Content\Bootstrap\less\navs.less" />
+    <Content Include="Content\Bootstrap\less\normalize.less" />
+    <Content Include="Content\Bootstrap\less\pager.less" />
+    <Content Include="Content\Bootstrap\less\pagination.less" />
+    <Content Include="Content\Bootstrap\less\panels.less" />
+    <Content Include="Content\Bootstrap\less\popovers.less" />
+    <Content Include="Content\Bootstrap\less\print.less" />
+    <Content Include="Content\Bootstrap\less\progress-bars.less" />
+    <Content Include="Content\Bootstrap\less\responsive-utilities.less" />
+    <Content Include="Content\Bootstrap\less\scaffolding.less" />
+    <Content Include="Content\Bootstrap\less\tables.less" />
+    <Content Include="Content\Bootstrap\less\theme.less" />
+    <Content Include="Content\Bootstrap\less\thumbnails.less" />
+    <Content Include="Content\Bootstrap\less\tooltip.less" />
+    <Content Include="Content\Bootstrap\less\type.less" />
+    <Content Include="Content\Bootstrap\less\utilities.less" />
+    <Content Include="Content\Bootstrap\less\variables.less" />
+    <Content Include="Content\Bootstrap\less\wells.less" />
+    <Content Include="Content\Bootstrap\LICENSE" />
+    <Content Include="Content\Bootstrap\package.json" />
+    <Content Include="Content\Bootstrap\README.md" />
+    <Content Include="Content\Bootstrap\test-infra\README.md" />
+    <Content Include="Content\Bootstrap\test-infra\requirements.txt" />
+    <Content Include="Content\Bootstrap\test-infra\s3_cache.py" />
+    <Content Include="Content\Bootstrap\test-infra\uncached-npm-install.sh" />
+    <Content Include="Content\Bootstrap\_config.yml" />
+    <Content Include="Images\favicon.ico" />
+    <Content Include="Scripts\access.js" />
+    <Content Include="Scripts\bic_calendar.js" />
+    <Content Include="Scripts\bic_calendar.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\countdown_script.js" />
+    <Content Include="Scripts\custom.js" />
+    <Content Include="Scripts\custom_OLD.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery.countdown.js" />
+    <Content Include="Scripts\jquery.fancybox-1.3.4.pack.js" />
+    <Content Include="Scripts\jquery.fancybox.pack.js" />
+    <Content Include="Scripts\jquery.flexslider-min.js" />
+    <Content Include="Scripts\jquery.isotope.js" />
+    <Content Include="Scripts\mail_validation.js" />
+    <Content Include="Scripts\orchard-tinymce.js" />
+    <Content Include="Scripts\revolution.custom.js" />
+    <Content Include="Scripts\rs-plugin\jquery.themepunch.plugins.min.js" />
+    <Content Include="Scripts\rs-plugin\jquery.themepunch.revolution.js" />
+    <Content Include="Scripts\rs-plugin\jquery.themepunch.revolution.min.js" />
+    <Content Include="Scripts\style-switcher.js" />
+    <Content Include="Scripts\style-switcher\images\image_0.jpg" />
+    <Content Include="Scripts\style-switcher\images\image_0_s.png" />
+    <Content Include="Scripts\style-switcher\images\image_1.jpg" />
+    <Content Include="Scripts\style-switcher\images\image_1_s.png" />
+    <Content Include="Scripts\style-switcher\images\image_2.jpg" />
+    <Content Include="Scripts\style-switcher\images\image_2_s.png" />
+    <Content Include="Scripts\style-switcher\images\image_3.jpg" />
+    <Content Include="Scripts\style-switcher\images\image_3_s.png" />
+    <Content Include="Scripts\style-switcher\iris.min.js" />
+    <Content Include="Scripts\style-switcher\jquery.cookie.js" />
+    <Content Include="Scripts\style-switcher\paintbrush_w.png" />
+    <Content Include="Scripts\style-switcher\patterns\pattern_0.png" />
+    <Content Include="Scripts\style-switcher\patterns\pattern_1.png" />
+    <Content Include="Scripts\style-switcher\patterns\pattern_10.png" />
+    <Content Include="Scripts\style-switcher\patterns\pattern_11.png" />
+    <Content Include="Scripts\style-switcher\patterns\pattern_12.png" />
+    <Content Include="Scripts\style-switcher\patterns\pattern_13.png" />
+    <Content Include="Scripts\style-switcher\patterns\pattern_14.png" />
+    <Content Include="Scripts\style-switcher\patterns\pattern_15.png" />
+    <Content Include="Scripts\style-switcher\patterns\pattern_2.png" />
+    <Content Include="Scripts\style-switcher\patterns\pattern_3.png" />
+    <Content Include="Scripts\style-switcher\patterns\pattern_4.png" />
+    <Content Include="Scripts\style-switcher\patterns\pattern_5.png" />
+    <Content Include="Scripts\style-switcher\patterns\pattern_6.png" />
+    <Content Include="Scripts\style-switcher\patterns\pattern_7.png" />
+    <Content Include="Scripts\style-switcher\patterns\pattern_8.png" />
+    <Content Include="Scripts\style-switcher\patterns\pattern_9.png" />
+    <Content Include="Scripts\style-switcher\style-switcher.js" />
+    <Content Include="Scripts\style-switcher\styler.css" />
+    <Content Include="Styles\bic_calendar.css" />
+    <Content Include="Styles\bootstrap.css" />
+    <Content Include="Styles\bootstrap.min.css" />
+    <Content Include="Styles\color_scheme.css" />
+    <Content Include="Styles\contrast\black-on-blue.css" />
+    <Content Include="Styles\contrast\black-on-cream.css" />
+    <Content Include="Styles\contrast\black-on-pink.css" />
+    <Content Include="Styles\contrast\black-on-white.css" />
+    <Content Include="Styles\contrast\black-on-yellow.css" />
+    <Content Include="Styles\contrast\white-on-black.css" />
+    <Content Include="Styles\contrast\yellow-on-black.css" />
+    <Content Include="Styles\custom.css" />
+    <Content Include="Styles\fancy-style.css" />
+    <Content Include="Styles\flexslider.css" />
+    <Content Include="Styles\font-awesome-ie7.css" />
+    <Content Include="Styles\font-awesome.css" />
+    <Content Include="Styles\icon-fonts.css">
+      <DependentUpon>icon-fonts.less</DependentUpon>
+    </Content>
+    <Content Include="Styles\IE-fix.css" />
+    <Content Include="Styles\isotope.css" />
+    <Content Include="Styles\jquery.countdown.css" />
+    <Content Include="Styles\jquery.fancybox-1.3.4.css" />
+    <Content Include="Styles\jquery.fancybox.css" />
+    <Content Include="Styles\local-google-fonts.css" />
+    <Content Include="Styles\overwrite.css" />
+    <Content Include="Styles\responsive.css" />
+    <Content Include="Styles\rs-plugin\assets\arrowleft.png" />
+    <Content Include="Styles\rs-plugin\assets\arrowright.png" />
+    <Content Include="Styles\rs-plugin\assets\arrow_large_left.png" />
+    <Content Include="Styles\rs-plugin\assets\arrow_large_right.png" />
+    <Content Include="Styles\rs-plugin\assets\arrow_left.png" />
+    <Content Include="Styles\rs-plugin\assets\arrow_left2.png" />
+    <Content Include="Styles\rs-plugin\assets\arrow_right.png" />
+    <Content Include="Styles\rs-plugin\assets\arrow_right2.png" />
+    <Content Include="Styles\rs-plugin\assets\black50.png" />
+    <Content Include="Styles\rs-plugin\assets\bullets.png" />
+    <Content Include="Styles\rs-plugin\assets\bullets2.png" />
+    <Content Include="Styles\rs-plugin\assets\grain.png" />
+    <Content Include="Styles\rs-plugin\assets\navigdots.png" />
+    <Content Include="Styles\rs-plugin\assets\navigdots_bgtile.png" />
+    <Content Include="Styles\rs-plugin\assets\shadow1.png" />
+    <Content Include="Styles\rs-plugin\assets\shadow2.png" />
+    <Content Include="Styles\rs-plugin\assets\shadow3.png" />
+    <Content Include="Styles\rs-plugin\assets\timer.png" />
+    <Content Include="Styles\rs-plugin\assets\timerdot.png" />
+    <Content Include="Styles\rs-plugin\assets\white50.png" />
+    <Content Include="Styles\rs-plugin\css\settings.css" />
+    <Content Include="Styles\rs-plugin\images\decor_inside.png" />
+    <Content Include="Styles\rs-plugin\images\decor_inside_white.png" />
+    <Content Include="Styles\rs-plugin\images\decor_testimonial.png" />
+    <Content Include="Styles\rs-plugin\images\gradient\g30.png" />
+    <Content Include="Styles\rs-plugin\images\gradient\g40.png" />
+    <Content Include="Styles\rs-responsive.css" />
+    <Content Include="Styles\site.css">
+      <DependentUpon>site.less</DependentUpon>
+    </Content>
+    <Content Include="Styles\style.css" />
+    <Content Include="Styles\styler.css" />
+    <Content Include="ThemeZonePreview.png" />
+    <Content Include="Web.config" />
+    <Content Include="Styles\Web.config" />
+    <Content Include="Content\Web.config" />
+    <Content Include="Theme.txt" />
+    <Content Include="Theme.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Orchard\Orchard.Framework.csproj">
+      <Project>{2D1D92BB-4555-4CBE-8D0E-63563D6CE4C6}</Project>
+      <Name>Orchard.Framework</Name>
+      <Private>false</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Orchard.Core.csproj">
+      <Project>{9916839C-39FC-4CEB-A5AF-89CA7E87119F}</Project>
+      <Name>Orchard.Core</Name>
+      <Private>false</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Insertions.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Resources.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Document.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AdditionalResources.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AdditionalInsertions.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Styles\site.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Branding.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Styles\structure.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Styles\reset.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Styles\navigation.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Styles\common.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Styles\type.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Styles\forms.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Styles\general.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Styles\variables.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Styles\misc.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Styles\pagination.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Styles\breadcrumbs.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Analytics.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Styles\media.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\AccessabilityController.cs" />
+    <Compile Include="Controllers\CalendarController.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourceManifest.cs" />
+    <Compile Include="Routes.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
+    <Content Include="Docs\HowTo.md" />
+    <Content Include="Docs\Purpose.md" />
+    <Content Include="Docs\Structure.md" />
+    <Content Include="Docs\UpdatingBootstrap.md" />
+    <None Include="Licence.md" />
+    <Content Include="Views\AdditionalTopResources.cshtml" />
+    <Content Include="Styles\icon-fonts.less" />
+    <Content Include="Readme.md" />
+    <Content Include="Views\BadgeOfHonor.cshtml" />
+    <Content Include="Views\Content-BlogPost.Summary.cshtml" />
+    <Content Include="Views\Content-ContactUsPage.Detail.cshtml" />
+    <Content Include="Views\Content-Room.Summary.cshtml" />
+    <Content Include="Views\Content-url-accessibility-web-site.cshtml" />
+    <Content Include="Views\Content-url-homepage.cshtml" />
+    <Content Include="Views\Content.cshtml" />
+    <Content Include="Views\Fields.Common.Text-Blog-Description.cshtml" />
+    <Content Include="Views\HighContrast.cshtml" />
+    <Content Include="Views\History.cshtml" />
+    <Content Include="Views\Menu.cshtml" />
+    <Content Include="Views\MenuItemLinkdd.cshtml" />
+    <Content Include="Views\Parts.Blogs.Blog.Description.cshtml" />
+    <Content Include="Views\Parts.Blogs.BlogPost.List.cshtml" />
+    <Content Include="Views\Parts.Common.Body.Summary-BlogPost.cshtml" />
+    <Content Include="Views\Tenants.cshtml" />
+    <Content Include="Views\Thumbnails.cshtml" />
+    <Content Include="Views\UpcomingEvents-ProjectionWidget.cshtml" />
+    <Content Include="Views\UpcomingEvents.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Widget-ImageCarouselWidget.cshtml" />
+    <Content Include="Styles\contrast\black-on-blue.scss" />
+    <Content Include="Styles\contrast\black-on-cream.scss" />
+    <Content Include="Styles\contrast\black-on-pink.scss" />
+    <Content Include="Styles\contrast\black-on-white.scss" />
+    <Content Include="Styles\contrast\black-on-yellow.scss" />
+    <Content Include="Styles\contrast\white-on-black.scss" />
+    <Content Include="Styles\contrast\yellow-on-black.scss" />
+    <Content Include="Styles\overwrite.scss" />
+    <Content Include="Scripts\access.coffee" />
+    <Content Include="Scripts\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Bootstrap\docs\_data\core-team.yml" />
+    <Content Include="Content\Bootstrap\docs\_data\sass-team.yml" />
+    <Content Include="Content\Bootstrap\docs\_data\translations.yml" />
+    <Content Include="Content\Bootstrap\docs\_jade\customizer-nav.jade" />
+    <Content Include="Content\Bootstrap\docs\_jade\customizer-variables.jade" />
+    <Content Include="Content\Bootstrap\grunt\.jshintrc" />
+    <Content Include="Content\Bootstrap\grunt\sauce_browsers.yml" />
+    <Content Include="Content\Bootstrap\js\.jscsrc" />
+    <Content Include="Content\Bootstrap\js\tests\unit\.jshintrc" />
     <Content Include="Content\Bootstrap\less\mixins\alerts.less" />
     <Content Include="Content\Bootstrap\less\mixins\background-variant.less" />
     <Content Include="Content\Bootstrap\less\mixins\border-radius.less" />
@@ -441,80 +656,14 @@
     <Content Include="Content\Bootstrap\less\mixins\text-emphasis.less" />
     <Content Include="Content\Bootstrap\less\mixins\text-overflow.less" />
     <Content Include="Content\Bootstrap\less\mixins\vendor-prefixes.less" />
-    <Content Include="Content\Bootstrap\less\modals.less" />
-    <Content Include="Content\Bootstrap\less\navbar.less" />
-    <Content Include="Content\Bootstrap\less\navs.less" />
-    <Content Include="Content\Bootstrap\less\normalize.less" />
-    <Content Include="Content\Bootstrap\less\pager.less" />
-    <Content Include="Content\Bootstrap\less\pagination.less" />
-    <Content Include="Content\Bootstrap\less\panels.less" />
-    <Content Include="Content\Bootstrap\less\popovers.less" />
-    <Content Include="Content\Bootstrap\less\print.less" />
-    <Content Include="Content\Bootstrap\less\progress-bars.less" />
     <Content Include="Content\Bootstrap\less\responsive-embed.less" />
-    <Content Include="Content\Bootstrap\less\responsive-utilities.less" />
-    <Content Include="Content\Bootstrap\less\scaffolding.less" />
-    <Content Include="Content\Bootstrap\less\tables.less" />
-    <Content Include="Content\Bootstrap\less\theme.less" />
-    <Content Include="Content\Bootstrap\less\thumbnails.less" />
-    <Content Include="Content\Bootstrap\less\tooltip.less" />
-    <Content Include="Content\Bootstrap\less\type.less" />
-    <Content Include="Content\Bootstrap\less\utilities.less" />
-    <Content Include="Content\Bootstrap\less\variables.less" />
-    <Content Include="Content\Bootstrap\less\wells.less" />
-    <Content Include="Content\Bootstrap\LICENSE" />
-    <Content Include="Content\Bootstrap\package.json" />
-    <Content Include="Content\Bootstrap\README.md" />
     <Content Include="Content\Bootstrap\test-infra\npm-shrinkwrap.json" />
-    <Content Include="Content\Bootstrap\test-infra\README.md" />
     <Content Include="Content\Bootstrap\test-infra\S3Cachefile.json" />
-    <Content Include="Content\Bootstrap\test-infra\s3_cache.py" />
-    <Content Include="Content\Bootstrap\test-infra\uncached-npm-install.sh" />
-    <Content Include="Content\Bootstrap\_config.yml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Docs\HowTo.md" />
-    <Content Include="Docs\Purpose.md" />
-    <Content Include="Docs\Structure.md" />
-    <Content Include="Docs\UpdatingBootstrap.md" />
-    <Content Include="Images\Web.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="compilerconfig.json" />
-    <Content Include="Licence.md" />
-    <Content Include="packages.config" />
-    <Content Include="Readme.md" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Styles\breadcrumbs.less" />
-    <Content Include="Styles\common.less" />
-    <Content Include="Styles\forms.less" />
-    <Content Include="Styles\general.less" />
-    <Content Include="Styles\icon-fonts.less" />
-    <Content Include="Styles\media.less" />
-    <Content Include="Styles\misc.less" />
-    <Content Include="Styles\navigation.less" />
-    <Content Include="Styles\pagination.less" />
-    <Content Include="Styles\reset.less" />
-    <Content Include="Styles\site.less" />
-    <Content Include="Styles\structure.less" />
-    <Content Include="Styles\type.less" />
-    <Content Include="Styles\variables.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Insertions.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\AdditionalInsertions.cshtml" />
-    <Content Include="Views\AdditionalResources.cshtml" />
-    <Content Include="Views\AdditionalTopResources.cshtml" />
-    <Content Include="Views\Analytics.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Resources.cshtml" />
+    <Folder Include="Content\Bootstrap\docs\assets\ico\" />
+    <Folder Include="Content\Bootstrap\docs\assets\js\vendor\" />
+    <Folder Include="Content\Bootstrap\docs\grunt\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -560,4 +709,7 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
 </Project>
