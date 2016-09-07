@@ -1,0 +1,7 @@
+Name: BizStrap.1.3
+Author: Alistair Edmunds
+Website: http://www.linkedin.com/in/alistairedmunds
+Description: Orchard implemtation of BizStrap.1.3
+Version: 1.3
+# todo: provide tags
+# Tags: Classic, Serif

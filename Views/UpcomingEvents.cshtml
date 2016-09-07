@@ -1,0 +1,76 @@
+﻿@using Orchard.MediaLibrary.Fields
+@{
+    var items = Model.ContentItems;
+    var i = 0;
+    // not sure this is used the projection bit is instead. 
+}
+
+<div class="events-page">
+    <h2>Upcoming Events</h2>
+    @foreach (var item in items) {
+        var title = item.TitlePart.Title;
+        var body = new HtmlString((string) item.BodyPart.Text);
+        var location = item.Event.Location.Value;
+        var date = ((DateTime) item.Event.StartDate.DateTime).Date.ToString("dd MMM yyyy");
+        var startTime = ((DateTime) item.Event.StartDate.DateTime).TimeOfDay.ToString("hh\\:mm");
+        var endTime = ((DateTime)item.Event.EndDate.DateTime).TimeOfDay.ToString("hh\\:mm");
+
+        var imageUrl = item.Event.ImageUrl.Value;
+
+        var delegates = item.Event.Delegates.Value;
+        var url = item.Event.Url.Value;
+        var organiser = item.Event.Organiser.Value; 
+
+             <div class="event">
+                 <div class="row-fluid">
+                     <div class="span4">
+                         <div class="image-wrapper">
+                             @if (imageUrl != null) {
+                                    <img alt="event logo image" src="@imageUrl" />
+                                }
+                                else {
+                                 if (i%2 == 0) {
+                                    <img alt="event logo image" src="@Url.Content(@"~/themes/bizStrap.1.3/Content/img/events-default1.jpg")" />        
+                                 }
+                                 else {
+                                     <img alt="event logo image" src="@Url.Content(@"~/themes/bizStrap.1.3/Content/img/events-default2.jpg")" />    
+                                 }
+                                 
+                                }
+                         </div>
+                     </div> 
+                     <div class="span8">
+                         
+                         <h4>
+                            @title
+                         </h4>
+                         <p></p>
+                         <p>location: @location</p>
+                         <p>Date & Time: @date @startTime - @endTime </p>  
+                          @body
+                         <p>Expected number of delegates: @delegates</p>
+                         <p>Website: <a href="@url">@url</a></p>
+                         <p>Organiser: @organiser</p>                                   
+                     </div>
+                 </div>
+                 
+                
+             
+             </div>         
+        
+        
+    if (i%2 == 0) {
+        <div class="text-divider7 even">
+            <span></span>
+        </div>    
+    }
+    else {
+        <div class="text-divider7">
+            <span></span>
+        </div>
+    }
+        i++;
+
+    }
+</div>
+
