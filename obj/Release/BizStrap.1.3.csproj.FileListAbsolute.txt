@@ -1,5 +1,0 @@
-C:\Dev\Orchard\Vassall\build\Compile\BizStrap.1.3.dll
-C:\Dev\Orchard\Vassall\build\Compile\BizStrap.1.3.pdb
-C:\Dev\Orchard\Vassall\src\Orchard.Web\Themes\BizStrap.1.3\obj\Release\BizStrap.1.3.csprojResolveAssemblyReference.cache
-C:\Dev\Orchard\Vassall\src\Orchard.Web\Themes\BizStrap.1.3\obj\Release\BizStrap.1.3.dll
-C:\Dev\Orchard\Vassall\src\Orchard.Web\Themes\BizStrap.1.3\obj\Release\BizStrap.1.3.pdb
