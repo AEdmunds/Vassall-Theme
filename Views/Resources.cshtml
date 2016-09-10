@@ -12,13 +12,12 @@
 @using Orchard.UI.Resources;
 
 @{
-    Display.AdditionalTopResources();
 
     var theme = WorkContext.CurrentTheme;
     /* Links
     ***************************************************************/
-    RegisterLink(new LinkEntry { Type = "image/x-icon", Rel = "shortcut icon", Href = Url.Content(theme.Location + "/" + theme.Path + "/Images/" + "favicon.ico") });
-    SetMeta(new MetaEntry { Name = "viewport", Content = "width=device-width, initial-scale=1.0" }); // Needed for Bootstrap responsiveness
+    RegisterLink(new LinkEntry {Type = "image/x-icon", Rel = "shortcut icon", Href = Url.Content(theme.Location + "/" + theme.Path + "/Images/" + "favicon.ico")});
+    SetMeta(new MetaEntry {Name = "viewport", Content = "width=device-width, initial-scale=1.0"}); // Needed for Bootstrap responsiveness
     SetMeta(httpEquiv: "X-UA-Compatible", content: "IE=edge,chrome=1");
 
     /* Styles
@@ -37,15 +36,15 @@
     Style.Require("flexslider");
     Style.Require("jquery.fancybox");
     Style.Require("overwrite");
-    //Style.Require("bic-cal");
+    Style.Require("bic-cal");
 
     /* Scripts
     ***************************************************************/
-    // Script.Include("~/Core/Shapes/Scripts/html5.js").AtHead();
+    Script.Include("~/Core/Shapes/Scripts/html5.js").AtHead();
 
 
     // script files 
-    Script.Require("jquery.1.7.2");
+    //Script.Require("jquery.1.7.2");
     Script.Require("jquery-ui");
     Script.Require("bootstrap");
     Script.Require("jquery.flexslider");
@@ -61,5 +60,4 @@
 
 
 
-    Display.AdditionalResources();
 }
