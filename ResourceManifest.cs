@@ -43,9 +43,9 @@ public class ResourceManifest : IResourceManifestProvider {
 
 
         // scripts
-        manifest.DefineScript("jquery.1.7.2").SetUrl("https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js");
-        manifest.DefineScript("jquery-ui").SetUrl("jquery-ui.min.js").SetDependencies("jquery.1.7.2");
-        manifest.DefineScript("bootstrap").SetUrl("bootstrap.js").SetDependencies("jquery.1.7.2");
+        //manifest.DefineScript("jquery.1.7.2").SetUrl("https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js");
+        //manifest.DefineScript("jquery-ui").SetUrl("jquery-ui.min.js").SetDependencies("jquery.1.7.2");
+        //manifest.DefineScript("bootstrap").SetUrl("bootstrap.js").SetDependencies("jquery.1.7.2");
         manifest.DefineScript("style-switcher").SetUrl("style-switcher/style-switcher.js").SetDependencies("jquery.1.7.2");
         manifest.DefineScript("jquery.flexslider").SetUrl("jquery.flexslider-min.js").SetDependencies("jquery.1.7.2");
         manifest.DefineScript("jquery.isotope").SetUrl("jquery.isotope.js").SetDependencies("jquery.1.7.2");

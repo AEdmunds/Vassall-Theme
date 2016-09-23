@@ -23,8 +23,8 @@ jQuery(document).ready(function() {
 	
 
 	
-	default_settings.pattern = 'themes/bizstrap.1.3/scripts/style-switcher/patterns/' + default_settings.pattern + '.png';
-	default_settings.bg = 'themes/bizstrap.1.3/scripts/style-switcher/images/' + default_settings.bg + '.jpg';
+	default_settings.pattern = 'themes/Dotnest-BizStrap.1.3/scripts/style-switcher/patterns/' + default_settings.pattern + '.png';
+	default_settings.bg = 'themes/Dotnest-BizStrap.1.3/scripts/style-switcher/images/' + default_settings.bg + '.jpg';
 	
 	if(jQuery('body').hasClass('admin')) {
 		directory = '../';
@@ -33,7 +33,7 @@ jQuery(document).ready(function() {
 	}
 	
 	
-	jQuery('head').append('<script type="text/javascript" src="' + directory + 'themes/bizstrap.1.3/scripts/style-switcher/jquery.cookie.js">');
+	jQuery('head').append('<script type="text/javascript" src="' + directory + 'themes/Dotnest-BizStrap.1.3/scripts/style-switcher/jquery.cookie.js">');
 
 	
 	if(enable_style_switcher){
@@ -47,7 +47,7 @@ jQuery(document).ready(function() {
 		jQuery('#over').append(template);
 		
 		
-		jQuery('head').append('<link type="text/css" rel="stylesheet" href="' + directory + 'themes/bizstrap.1.3/scripts/style-switcher/styler.css"/><script type="text/javascript" src="' + directory + 'themes/bizstrap.1.3/scripts/style-switcher/iris.min.js"></script>');
+		jQuery('head').append('<link type="text/css" rel="stylesheet" href="' + directory + 'themes/Dotnest-BizStrap.1.3/scripts/style-switcher/styler.css"/><script type="text/javascript" src="' + directory + 'themes/bizstrap.1.3/scripts/style-switcher/iris.min.js"></script>');
 		
 		for(var i = 0; i < colors_count; i++){
 			jQuery("#mtp-wrapper .mtp-color").append('<li class="color_' + i + '"></li>')
@@ -72,7 +72,7 @@ jQuery(document).ready(function() {
 				alert('Please select "Boxed" layout!')
 			} else {
 				var selectedPattern = jQuery(this).attr('class'),
-				patternUrl = 'themes/bizstrap.1.3/scripts/style-switcher/patterns/' + selectedPattern + '.png';
+				patternUrl = 'themes/Dotnest-BizStrap.1.3/scripts/style-switcher/patterns/' + selectedPattern + '.png';
 				jQuery('body').css('background-image', 'url('+ directory + patternUrl +')').removeClass('background-cover').addClass('background-pattern');
 				setThemeSettings('pattern', patternUrl);
 			}
@@ -84,7 +84,7 @@ jQuery(document).ready(function() {
 				alert('Please select "Boxed" layout!')
 			} else {
 				var selectedImg = jQuery(this).attr('class'),
-				imgUrl =  'themes/bizstrap.1.3/scripts/style-switcher/images/' + selectedImg + '.jpg';
+				imgUrl = 'themes/Dotnest-BizStrap.1.3/scripts/style-switcher/images/' + selectedImg + '.jpg';
 				jQuery('body').css('background-image', 'url('+ directory + imgUrl +')').removeClass('background-pattern').addClass('background-cover');
 				setThemeSettings('bg', imgUrl);
 			}

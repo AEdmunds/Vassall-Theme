@@ -1,0 +1,61 @@
+﻿@using System.Globalization
+@using System.Text
+@using Orchard.MediaLibrary.Fields
+@{
+
+    var mediaFields = (MediaLibraryPickerField)Model.ContentItem.ImageCarouselPart.Images;
+
+    // lazy load parts 
+    var images = mediaFields.MediaParts.ToArray();
+
+    // include script  file for slider 
+    // TODO: Script.Require("")    
+     
+       
+}
+
+
+
+
+ <div class="bannercontainer" >
+     <div class="banner" >
+         <ul>
+             
+             @for (var i = 0; i < images.Count(); i++) {
+                 var className = string.Format("slider{0}", i.ToString(CultureInfo.InvariantCulture));
+                 var transition = i == 0 ? "slotfade-horizontal" : "slideleft";
+                <!-- MAIN CONTENT AREA: SLIDER BANNER (REVOLUTION SLIDER) - SLIDE 1 [SLIDE STYLE=BOXFADE] -->
+                <li class="@className slide" data-transition="@transition" data-slotamount="10"  data-masterspeed="300">
+                    
+                    @if (images[i].MimeType.StartsWith("image/")) {
+                        <img alt="@images[i].AlternateText" src="@images[i].MediaUrl" />
+                    }
+                    @*
+                    else {
+                        <iframe width="640" height="360" src="//www.youtube.com/embed/p3qltK6RfWg?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
+                    }*@
+                    @*<div class="video">
+                        <iframe width="640" height="360" src="//www.youtube.com/embed/p3qltK6RfWg?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
+                    </div>*@
+                    @*<div class="caption sft carousel-caption" data-x="110" data-y="110" data-speed="1000" data-start="1000" data-easing="easeInBack" style="background: none;">
+                         <p class="middle">Beautiful, clean, ultra-responsive & highly flexible</p>
+
+                     </div>
+                     <div class="caption sfl carousel-caption" data-x="98" data-y="141" data-speed="1000" data-start="1000" data-easing="easeOutBack" style="background: none;">
+                         <p class="big">An Incredible New</p>
+                     </div>
+                     <div class="caption sfl carousel-caption" data-x="98" data-y="191" data-speed="1000" data-start="1000" data-easing="easeOutBack" style="background: none;">
+                         <p class="big">HTML5 Template!</p>
+                     </div>*@
+                    
+                    @*<div class="caption sfb carousel-caption" data-x="111" data-y="247" data-speed="1000" data-start="1000" data-easing="easeInBack" style="background: none; width: 436px;">
+                         <p class="small">
+                             @images[i].Caption
+                         </p>
+                     </div>*@
+
+                 </li>
+             }
+         </ul>
+     </div>
+ </div>

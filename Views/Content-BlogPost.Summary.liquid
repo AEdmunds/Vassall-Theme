@@ -1,0 +1,34 @@
+﻿{% if Model.Title %} 
+	{% PageTitle Model.Title %} 
+{% endif %}
+
+{% AddClassToCurrentShape "content-item" %}
+{% AddClassToCurrentShape ((string)Model.ContentItem.ContentType).HtmlClassify() %}    
+
+<article id="News" class="blog content-item">
+
+<header>
+    {{ Model.Header | Display }}
+    {% if Model.Meta %}
+        <div class="metadata">
+            {{ Model.Meta | Display }}
+        </div>
+    {% endif %}
+    <div class="metadata">
+		{{ Model.ContentItem.CommonPart.CreatedUtc | date: "%B %Y" }}
+    </div>
+</header>
+
+{{ Model.Content | Display }}
+{% if Model.Footer %}
+	<footer>
+		{{ Model.Footer | Display }}
+	</footer>
+{% endif %}
+
+<article>
+
+<div class="text-divider7">
+    <span></span>
+</div>
+

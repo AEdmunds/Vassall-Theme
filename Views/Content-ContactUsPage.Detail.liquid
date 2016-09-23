@@ -1,0 +1,115 @@
+﻿{% if Model.Title %} 
+	{% PageTitle Model.Title %} 
+{% endif %}
+{% AddClassToCurrentShape "content-item" %}
+{% AddClassToCurrentShape ((string)Model.ContentItem.ContentType).HtmlClassify() %}    
+    
+(%    
+    
+    asing street = Model.ContentItem.ContactUsPage.Street.Value;
+    asing city = Model.ContentItem.ContactUsPage.City.Value;
+    asing postcode = Model.ContentItem.ContactUsPage.Postcode.Value;
+    asing phone = Model.ContentItem.ContactUsPage.Phone.Value;
+    asing email = Model.ContentItem.ContactUsPage.Email.Value;
+    asing hoursMonday = Model.ContentItem.ContactUsPage.HoursMonday.Value;
+    asing hoursTuesday = Model.ContentItem.ContactUsPage.HoursTuesday.Value;     
+    asing hoursWednesday = Model.ContentItem.ContactUsPage.HoursWednesday.Value;     
+    asing hoursThursday = Model.ContentItem.ContactUsPage.HoursThursday.Value;     
+    asing hoursFriday = Model.ContentItem.ContactUsPage.HoursFriday.Value;     
+    asing hoursSaturday = Model.ContentItem.ContactUsPage.HoursSaturday.Value;     
+    asing hoursSunday = Model.ContentItem.ContactUsPage.HoursSunday.Value;
+
+    asign mapUrl = Model.ContentItem.ContactUsPage.GoogleMapsUrl.Value;
+
+    asign imageField = (MediaLibraryPickerField)Model.ContentItem.ContactUsPage.ContactList;
+    asign mediaParts = imageField.MediaParts;
+    asign doc = mediaParts.FirstOrDefault();
+    
+%}
+
+<!-- MAIN CONTENT AREA -->
+        <div class="main-content">
+            <div class="container">                             
+                <div class="row show-grid">
+                    <div class="span12" data-original-title="">
+                        <div class="col-wrapper">                        
+                        <div class="row show-grid">
+                            <div class="contact-form span8">
+                                <div id="result">
+
+                                </div>
+                                
+                                <iframe style="width: 100%; height: 600px; border: none;" 
+                                        src="{{ mapUrl }}">
+                                </iframe>
+                            </div>
+
+
+                                <div class="contact-info span4">
+                                    <h2>The Vassall centre</h2>
+
+                                    <address>
+                                        {{ street }},<br />
+                                        {{ city }},<br />
+                                        {{ postcode }}<br />
+                                        Phone: {{ phone }}<br />
+                                        Email: <a href="mailto:{{ email }}">{{ email }}</a><br />
+                                    </address>
+
+                                    <ul class="socials unstyled">
+                                        <li><a href="http://www.linkedin.com/company/vc-conferences-ltd" target="_blank" class="linkedin"></a></li>
+                                    </ul>
+
+                                    <h2>Hours of Business Operation</h2>
+                                    <table class="table">
+                                        <tbody>
+                                            <tr>
+                                                <td class="small">Monday:</td>
+                                                <td class="bold">{{ hoursMonday }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="small">Tuesday:</td>
+                                                <td class="bold">{{ hoursTuesday }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="small">Wednesday:</td>
+                                                <td class="bold">{{ hoursWednesday }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="small">Thursday:</td>
+                                                <td class="bold">{{ hoursThursday }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="small">Friday:</td>
+                                                <td class="bold">{{ hoursFriday }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="small">Saturday:</td>
+                                                <td class="bold">{{ hoursSaturday }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="small">Sunday:</td>
+                                                <td class="bold">{{ hoursSunday }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    
+                                    <p>
+                                        Please note above are the hours when the Centre is operated by caretakers and office staff. The Centre is open for pre-booked meetings and conferences outside of these hours and on weekends. 
+                                    </p>
+                                    
+                                    {% if doc %}
+                                        <div>
+                                            <a href="{{ doc.MediaUrl }}" target="_blank">View Contact list PDF</a> 
+                                        </div>
+                                    {% endif %}
+                                    
+
+                                </div>
+                        </div>               
+                  </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+</div>
