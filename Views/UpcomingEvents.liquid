@@ -1,0 +1,59 @@
+﻿
+<div class="events-page">
+    <h2>Upcoming Events</h2>
+	{% assign i = 0 %}
+    {% foreach item in Model.ContentItems %}
+       
+        {% assign imageUrl = item.Event.ImageUrl.Value %}
+        {% assign url = item.Event.Url.Value %}
+        
+
+		 <div class="event">
+			 <div class="row-fluid">
+				 <div class="span4">
+					 <div class="image-wrapper">
+						 {% if imageUrl %}
+								<img alt="event logo image" src="{{ imageUrl }}" />
+						 {% else %}
+							{% if i%2 == 0 %}
+								<img alt="event logo image" src="{% Href "~/themes/Dotnest-BizStrap.1.3/Content/img/events-default1.jpg" %} />        
+							{% else %}
+							 	 <img alt="event logo image" src="{% Href "~/themes/Dotnest-BizStrap.1.3/Content/img/events-default2.jpg" %}" />    
+							{% endif %}
+						{% end if%}
+					 </div>
+				 </div> 
+				 <div class="span8">
+					 <h4>
+						{{ item.TitlePart.Title }}
+					 </h4>
+					 <p></p>
+					 <p>location: {{ item.Event.Location.Value }}</p>
+					 <p>Date & Time: {{ item.Event.StartDate.DateTime | "dd MMM yyyy" }} {{ item.Event.StartDate.DateTime | ("hh\\:mm") }} - {{ item.Event.EndDate.DateTime | ("hh\\:mm") }} </p>  
+						{{ item.BodyPart.Text }}
+					 <p>Expected number of delegates: {{ item.Event.Delegates.Value }}</p>
+					 <p>Website: <a href="{{ url }}">{{ url }}</a></p>
+					 <p>Organiser: {{ item.Event.Organiser.Value }}</p>                                   
+				 </div>
+			 </div>
+			 
+			
+		 
+		 </div>         
+        
+        
+		{% if i%2 == 0 %}
+			<div class="text-divider7 even">
+				<span></span>
+			</div>    
+		{% else %}
+			<div class="text-divider7">
+				<span></span>
+			</div>
+		{% endif %}
+		{% assign i = i | plus: 1 %}
+	
+	{% endfor %}
+    
+</div>
+

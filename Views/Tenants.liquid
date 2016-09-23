@@ -1,0 +1,59 @@
+﻿
+<div id="tneants-list">
+	{% assign i = 0 %}
+	{% for item in Model.ContentItems %}
+
+    {% assign imageField = (MediaLibraryPickerField)item.Tenant.Logo %}
+    {% assign mediaParts = imageField.MediaParts %}
+    {% assign image = mediaParts.FirstOrDefault() %}
+    
+    {% assign phone = item.Tenant.Telephone.Value %}
+    {% assign email = item.Tenant.Email.Value %}
+    {% assign website = item.Tenant.Website.Value %}
+    {% assign space = item.Tenant.SpaceAtVassallCentre.Value %}
+
+    {% assign hash = item.Tenant.Hash.Value %}
+        
+    <div id="{{ hash }}" class="tenant">
+        <div class="row-fluid">
+            <div class="span4">
+                <div class="image-wrapper">
+                    {% if image %}
+                        <img src="{{ image.MediaUrl }}" alt="{{ image.AlternateText }}"/>
+                    {% endif %}
+                </div>
+            </div>
+ 
+            <div class="span8">
+                <h2>
+                    {{ item.Tenant.TitlePart.Title }}
+                </h2>    
+    
+                {{ item.BodyPart.Text }}
+                
+                <div class="contact-info">
+                    <p>Phone: <a href="tel:{{ phone }}">{{ phone }}</a></p>
+                    <p>Email: <a href="mailto:{{ email }}">{{ email }}</a></p>
+                    <p>Website: <a href="{{ website }}">{{ website }}</a></p>
+                    <p>Location : {{ space }}</p>
+                </div>
+            </div> 
+            
+        </div>
+    </div>
+    
+    
+    {% if i%2 == 0 %}
+        <div class="text-divider7 even">
+            <span></span>
+        </div>    
+    {% else %}
+        <div class="text-divider7">
+            <span></span>
+        </div>
+    {% endif %}
+
+    {% assign i = i | plus: 1 %}
+
+}
+</div>

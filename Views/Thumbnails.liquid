@@ -1,0 +1,45 @@
+﻿
+<div class="row-fluid">
+    <ul class="thumbnails">
+        {% foreach item in Model.ContentItems %}
+			{% assign imageField = (MediaLibraryPickerField)item.Room.Image %}
+			{% assign mediaParts = imageField.MediaParts %}
+			{% assign image = mediaParts.FirstOrDefault() %}
+			{% assign size = item.Room.Size.Value %}
+		
+            <li class="span4">
+                <div class="thumbnail">
+                    
+                    {% if image %}
+                        <img alt="{{ image.AlternateText }}" src="@Display.ResizeMediaUrl(Path: image.MediaUrl, Width: 300, Height: 200)" width="300" height="200" />
+                    {% else %}
+                        <div class="image-place-holder">
+                            
+                        </div>
+                    {% endif %}
+                    
+
+                    <div class="caption">
+                        <h3>
+                            {{ item.TitlePart.Title }}
+                            <small>
+                                ( {{ size }} )
+                            </small>
+                        </h3>
+                        <div class="teaser">
+                            <p>
+								{{ item.BodyPart.Text | truncate: 200 }}
+                            </p>
+                        </div>
+                        
+                        <a href="mailto:vassall@vcconferences.co.uk?subject={{ item.TitlePart.Title }}" class="btn btn-primary">Book Now</a> 
+                        
+                  </div>                  
+                </div>
+            </li>    
+        {% endfor %}
+    </ul>
+</div>
+
+
+

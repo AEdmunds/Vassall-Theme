@@ -1,0 +1,30 @@
+﻿@using Orchard.ContentManagement
+{% assign i = 0 %}
+{% for item in Model.ContentItems %}
+  
+	<h1>
+        {{ item.HistorySpan.TitlePart.Title }}
+        <small>
+             {{ item.HistorySpan.FromDate.DateTime | %y }} - {{ item.HistorySpan.ToDate.DateTime | %y }}                                  
+        </small>
+    </h1>    
+      
+	<div class="row-fluid">
+		<div class="span12">
+			{{ item.BodyPart.Text }} 
+		</div>
+	</div>
+
+    {% if i%2 == 0 %}
+        <div class="text-divider7 even">
+            <span></span>
+        </div>    
+    {% else %}
+        <div class="text-divider7">
+            <span></span>
+        </div>
+    {% endif %}
+    
+    {% assign i = i | plus: 1 %}
+
+{% endfor %}
