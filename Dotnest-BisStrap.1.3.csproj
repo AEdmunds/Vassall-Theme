@@ -885,7 +885,6 @@
     </Content>
     <Content Include="ThemeZonePreview.png" />
     <Content Include="Views\BadgeOfHonor.liquid" />
-    <Content Include="Views\Branding.cshtml" />
     <None Include="Views\Branding.liquid" />
     <Content Include="Content\egfont.ttf" />
     <Content Include="Content\Web.config" />
@@ -910,6 +909,18 @@
     <Content Include="Views\Layout.cshtml" />
     <Content Include="Views\Content-BlogPost.Summary.liquid" />
     <Content Include="Views\Content-ContactUsPage.Detail.liquid" />
+    <Content Include="Views\Content-Room.Summary.liquid" />
+    <Content Include="Views\Content-url-accessibility-web-site.liquid" />
+    <Content Include="Views\Content-url-homepage.liquid" />
+    <Content Include="Views\HighContrast.cshtml" />
+    <Content Include="Views\History.liquid" />
+    <Content Include="Views\Menu.cshtml" />
+    <Content Include="Views\MenuItemLinkdd.liquid" />
+    <Content Include="Views\Tenants.liquid" />
+    <Content Include="Views\Thumbnails.liquid" />
+    <Content Include="Views\UpcomingEvents-ProjectionWidget.liquid" />
+    <Content Include="Views\UpcomingEvents.liquid" />
+    <Content Include="Views\Widget-ImageCarouselWidget.liquid" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Licence.md" />
