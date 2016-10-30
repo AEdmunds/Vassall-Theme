@@ -1,0 +1,16 @@
+﻿
+{% if Model.Title %} 
+	{% PageTitle Model.Title %} 
+{% endif %}
+
+{% AddClassToCurrentShape "content-item" %}
+{% AddClassToCurrentShape ((string)Model.ContentItem.ContentType).HtmlClassify() %}    
+
+<article class="page content-item">
+    {{ Model.Content | Display }}
+    {% if Model.Footer %}
+        <footer>
+            {{ Model.Footer | Display }}
+        </footer>
+    {% endif %}
+</article>

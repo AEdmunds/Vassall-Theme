@@ -1,0 +1,18 @@
+﻿<div class="thumbnail">
+    <article id="Meeting Rooms" class="projection-page content-item">
+        <header>
+            {{ Model.Header | Display }}
+            {% if Model.Meta %}
+                <div class="metadata">
+                    {{ Model.Meta | Display }}
+                </div>
+            {% endif %}
+        </header>
+        {{ Model.Content | Display }}
+        {% if Model.Footer %}
+            <footer>
+                {{ Model.Footer | Display }}
+            </footer>
+        {% endif %}
+    <article>
+</div>

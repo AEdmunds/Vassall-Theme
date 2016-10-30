@@ -52,7 +52,7 @@ form {
 		}
 	}
 	.nav > li{
-		width:12.5%;
+		width:16.666666666%;
 		border-right:0;
 		line-height: 1.4em;
 		a {
@@ -165,8 +165,8 @@ form#set-text-size-form
 	}
 }
 
-form#set-contrast-form {
-	input.btn {
+#set-contrast-form {
+	button {
 		float: none;
 	}
 	fieldset{
@@ -241,7 +241,7 @@ form#set-contrast-form {
 .logo{
 	img{
 		height:130px;
-		widht:160px;
+		width:160px;
 	}
 }
 
@@ -257,7 +257,7 @@ header .container .row .span9{
 	}
 }
 
-input.btn-cycle{
+.btn-cycle{
 	background-image:url(../content/img/cycle-contrast.png);
 	background-repeat: no-repeat;
 	background-position-x:3px;
@@ -340,6 +340,27 @@ header{
 
 }
 
+.Blog{
+	ul{
+		margin-top:0;
+		margin-left:0;
+		li{
+			list-style:none;
+			//border-bottom: 1px solid #cccccc;
+			margin-top: 19px;
+		}
+	}
+
+	.tags{
+		display:none;
+	}
+
+	
+
+}
+
+
+
 .read-more{
 	margin-bottom:20px;
 }
@@ -388,8 +409,14 @@ header{
 
 .blog li:nth-child(odd){
 	.text-divider7 span{
-		float:right
+		float:right;
 	}
+}
+
+.Blog li:nth-child(odd){
+    .text-divider7 span{
+        float:right;
+    }
 }
 
 .zone-footer{

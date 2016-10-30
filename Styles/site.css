@@ -1,4 +1,6 @@
-﻿@import "//fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,700italic";
+﻿@import "../../Dotnest-BizStrap.1.3/Styles/rs-plugin/css/settings.css";
+@import "../../Dotnest-BizStrap.1.3/Styles/rs-responsive.css";
+@import "//fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,700italic";
 @import "../../Dotnest-BizStrap.1.3/Styles/bootstrap.css";
 @import "../../Dotnest-BizStrap.1.3/Styles/custom.css";
 @import "../../Dotnest-BizStrap.1.3/Styles/styler.css";

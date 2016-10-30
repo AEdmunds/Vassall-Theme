@@ -1,0 +1,48 @@
+﻿
+<ul class="blog-posts content-items">
+	{% for item in Model.ContentItems.Items %}
+		{% if forloop.first == true %}
+			<li class="first">
+		{% elseif forloop.last == true %}
+			<li class="last">
+		{% else %}
+			<li>
+		{% endif %}
+			
+			<article class="blog content-item">
+				<header>
+					{{ item.Header | Display }}
+					{% if item.Meta %}
+						<div class="metadata">
+							{{ item.Meta | Display }}
+						</div>
+					{% endif %}
+					<div class="metadata">
+						{{ item.ContentItem.CommonPart.CreatedUtc | date: '%B %d, %Y' }}
+					</div>
+				</header>
+
+				{{ item.Content | Display }}
+				
+				{% if item.Footer %}
+					<footer>
+						{{ item.Footer | Display }}
+					</footer>
+				{% endif %}
+
+			</article>
+					
+			
+			<div class="text-divider7">
+				<span></span>
+			</div>
+
+		</li>
+
+
+	{% endfor %}
+</ul>
+
+{% if blogPosts or blogPosts.Count() < 1 %} 
+	<p>There are no posts for this blog.</p>
+{% endif %}

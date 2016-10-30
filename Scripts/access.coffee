@@ -1,33 +1,111 @@
 
 $ = jQuery ## reset $ var within funciton
 
-## funciton to resize text
-## $.fn.resizeText = (multiplier) ->
-##    if document.body.style.fontSize is ""
-##        document.body.style.fontSize = "0.8em";
-##    document.body.style.fontSize = parseFloat(document.body.style.fontSize) + (multiplier * 0.1) + "em"
+getColors = (name)->
+    if name is "black"
+        return "#000000" 
+    if name is "white"
+        return "#ffffff" 
+    if name is "yellow" 
+        return "#ffff00"         
+    if name is "blue"
+        return "#ddddff" 
+    if name is "cream"  
+        return "#ffffdd"
+    if name is "pink"
+        return "#ffdddd"
+    
 
-## generic function to change site contrast 
-## ToDo: persist this to session or cookie for whole site via ajax request 
 
-$('.text-size').click ->
-    $.post $('#set-text-size-form')[0].action, 'submitButton=' + this.id, (data)-> 
-        document.body.style.fontSize = data.emsize + "em"
+## function to resize text
+resizeText = (multiplier) ->
+    if document.body.style.fontSize is ""
+        document.body.style.fontSize = "0.8em";
+    document.body.style.fontSize = parseFloat(document.body.style.fontSize) + (multiplier * 0.1) + "em"
+
+ 
+setCookie = (cname, cvalue, exdays)->
+    d = new Date()
+    d.setTime(d.getTime() + (exdays*24*60*60*1000))
+    expires = "expires="+ d.toUTCString()
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/"
+
+getCookie = (cname)->
+    name = cname + "=";
+    ca = document.cookie.split(';');
+    for i in [0..ca.length]
+        c = ca[i]
+        if c isnt undefined
+            c = c.substring(1) while c.startsWith(' ')
+            if c.indexOf(name) == 0
+                return c.substring(name.length,c.length)
+    
+    return "";
+
+
+$('.text-size-smaller').click ->
+    resizeText(-1)
     return false
+
+$('.text-size-bigger').click ->
+    resizeText(1)
+    return false
+
+$('.text-size-reset').click ->
+    document.body.style.fontSize = "0.8em";
+    return false
+
+setContrast = (newContrast)->
+     ## get logo 
+    if newContrast.startsWith("black")
+        newLogo = '../../themes/Dotnest-BizStrap.1.3/content/img/vassall-logo-bw.gif'     
+    else
+        newLogo = '../../themes/Dotnest-BizStrap.1.3/content/img/vassall-logo.png'
+
+    ## set colours         
+    colours = newContrast.split('-on-') 
+    
+    data =  
+        backcolor: getColors(colours[1]) 
+        forecolor: getColors(colours[0])
+        logo: newLogo
+        message: newContrast.substring(0,5)
+           
+    setCookie("contrast", newContrast, 600)
+
+    changeContrast(data)
 
 
 $("#cycle-contrast").click ->
-    $.post $('#cycle-contrast-form')[0].action, 'submitButton=' + this.id, (data)->
-        changeContrast(data)
+  ## get contrast
+    currentContrast = getCookie("contrast")
+    if currentContrast is ""  
+        newContrast = "black-on-white"
+    else
+        contratsArray = ["black-on-white","black-on-yellow","black-on-blue","black-on-pink","black-on-cream","white-on-black","yellow-on-black","reset-contrast"]
+        index = contratsArray.indexOf(currentContrast)
+        if index > 6
+            newIndex = 0
+        else 
+            newIndex = index + 1     
+        newContrast = contratsArray[newIndex]
+   
+    setContrast(newContrast)
+    console.log newContrast
     return false 
+
+$("#reset-contrast").click ->
+    setContrast("reset-contrast")
+    return false 
+
 
 $("#cycle-contrast-form #contrast").click ->
     window.location = $("#contrast-link").val()
     return false
 
-$('.btn-contrast').click ->    
-    $.post $('#set-contrast-form')[0].action, 'submitButton=' + this.id, (data)->
-        changeContrast(data)
+$('.btn-contrast').click ->
+    newContrast = this.InnerHTML    
+    setContrast(newContrast)
     return false 
 
 changeContrast = (data) ->
@@ -52,14 +130,4 @@ changeContrast = (data) ->
             "color":data.forecolor
         $('.logo img')[0].src = data.logo
     
-## bic calender 
 
-##months = ["January", "Febuary ", "March", "April", "May", "June", "July", "August", "Setember", "October", "November", "December"];
-##days = ["M", "T", "W", "T", "F", "S", "S"];
-
-##$('#booking-calendar').bic_calendar
-##    nombresMes: months
-##    dias: days
-##    req_ajax: 
-##        type: 'get',
-##        url: 'calendarDates'

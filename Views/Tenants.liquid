@@ -1,0 +1,43 @@
+﻿
+<div id="tenants-list">
+	{% for item in Model.ContentItems %}
+		
+		{% assign image = item.Tenant.Images.MediaParts[0] %}
+		{% assign phone = item.Tenant.Phone.Value %}
+		{% assign email = item.Tenant.Email.Value; %}
+		{% assign website = item.Tenant.Website.Value; %}
+		
+		<div id="{{ item.Tenant.Hash.Value }}" class="tenant">
+			<div class="row-fluid">
+				<div class="span4">
+					<div class="image-wrapper">
+						{% if image %}
+							<img src="{{ image.MediaUrl }}" alt="{{ image.AlternateText }}"/>
+						{% endif %}
+					</div>
+				</div>
+ 
+				<div class="span8">
+					<h2>
+						{{ item.Tenant.TitlePart.Title }}
+					</h2>    
+					
+					{{ item.BodyPart.Text }}
+					
+					<div class="contact-info">
+						<p>Phone: <a href="tel:{{ phone }}">{{ phone }}</a></p>
+						<p>Email: <a href="mailto:{{ email }}">{{ email }}</a></p>
+						<p>Website: <a href="{{ website }}">{{ website }}</a></p>
+						<p>Location : {{ item.Tenant.SpaceAtVassallCentre.Value }}</p>
+					</div>
+				</div> 
+            
+			</div>
+		</div>
+		
+		<div class="text-divider7 {% cycle 'even', 'odd' %}">
+			<span></span>
+		</div>    
+  	
+	{% endfor %}
+</div>

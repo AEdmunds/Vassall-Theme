@@ -1,0 +1,20 @@
+﻿<div class="bannercontainer" >
+    <div class="banner" >
+		<ul>
+            {% for mediaPart in Model.ContentItem.ImageCarouselPart.Images.MediaParts %}
+				{% if forloop.index == 0 %} 		
+					{% assign transition = "slotfade-horizontal" %}
+				{% else %}
+					{% assign transition = "slideleft" %}
+				{% endif %}
+                <!-- MAIN CONTENT AREA: SLIDER BANNER (REVOLUTION SLIDER) - SLIDE 1 [SLIDE STYLE=BOXFADE] -->
+                <li class="slider{{ forloop.index }} slide" data-transition="{{ transition }}" data-slotamount="10"  data-masterspeed="300">
+                    {% if mediaPart.MimeType contains "image/" %}
+                        <img alt="{{ mediaPart.AlternateText}} " src="{{ mediaPart.MediaUrl }}" />
+                    {% endif %}
+					
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
