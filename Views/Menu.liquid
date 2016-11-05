@@ -1,0 +1,87 @@
+<div class="navbar menu menu-{{ Model.MenuName }}">
+    <div class="navbar-inner">
+        <div class="container">
+            <div class="buttons-container">
+            </div>
+            <div class="nav-collapse">
+                <nav>
+                    <ul class="nav nav-pills menu menu-{{ Model.MenuName }}">
+						{% for item in Model.Items %}
+							
+							{% if item.Content.ContentItem.ContentType == "ContentMenuItem" %}
+								{% assign borderColor = item.Content.ContentItem.ContentMenuItem.BorderColour.Value %}
+								{% assign accessKey = item.Content.ContentItem.ContentMenuItem.AccessKey.Value %}
+							{% endif %}
+							{% if item.Content.ContentItem.ContentType == "MenuItem" %}
+								{% assign borderColor = item.Content.ContentItem.MenuItem.BorderColour.Value %}
+								{% assign accessKey = item.Content.ContentItem.MenuItem.AccessKey.Value %}
+							{% endif %}
+							
+							{% if borderColor %}
+       
+								{% assign pageName = item.Content.MenuText %} 
+								
+								<style>
+									li#li-{{ item.Content.MenuText | replace: " ", "-" }} {
+										border-top: 2px solid {{ borderColor }}; 
+										border-bottom: 2px solid {{ borderColor }};
+									}
+									li#li-{{ item.Content.MenuText | replace: " ", "-" }} a:active {
+										background-color: {{ borderColor }};
+										color: auto;
+									}
+									li#li-{{ item.Content.MenuText | replace: " ", "-" }}:hover a{
+										border-bottom: 6px solid {{ borderColor }}; 
+									}
+									li.active#li-{{ item.Content.MenuText | replace: ", " "-" }} a{
+										border-bottom: 6px solid {{ borderColor }};
+									}
+									
+									#{{ pageName }} .text-divider7 span{
+										background-color: {{ borderColor }};
+									} 
+									
+										
+								</style>
+									
+							{% endif %}    
+										
+							{% if forloop.first == true %}
+								{% if item.Selected == true %}
+									<li id="li-{{ item.Content.MenuText | replace: " ", "-" }}" class="first active">
+										<a href="{{ item.Href }}" accesskey="h">{{ item.Content.MenuText }}</a>
+									</li>								
+								{% else %}
+									<li id="li-{{ item.Content.MenuText | replace: " ", "-" }}" class="first">
+										<a href="{{ item.Href }}" accesskey="h">{{ item.Content.MenuText }}</a>
+									</li>
+								{% endif %}
+							{% elsif forloop.last == true %}
+								{% if item.Selected == true %}
+									<li id="li-{{ item.Content.MenuText | replace: " ", "-" }}" class="last active">
+										<a href="{{ item.Href }}" accesskey="h">{{ item.Content.MenuText }}</a>
+									</li>
+								{% else %}
+									<li id="li-{{ item.Content.MenuText | replace: " ", "-" }}" class="last">
+										<a href="{{ item.Href }}" accesskey="h">{{ item.Content.MenuText }}</a>
+									</li>
+								{% endif %}	
+							{% else %}
+								{% if item.Selected == true %}
+									<li id="li-{{ item.Content.MenuText | replace: " ", "-" }}" class="active">
+										<a href="{{ item.Href }}" accesskey="h">{{ item.Content.MenuText }}</a>
+									</li>
+								{% else %}
+									<li id="li-{{ item.Content.MenuText | replace: " ", "-" }}">
+										<a href="{{ item.Href }}" accesskey="h">{{ item.Content.MenuText }}</a>
+									</li>
+								{% endif %}	
+							{% endif %}
+									
+						{% endfor %}	
+				    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+<div>   
