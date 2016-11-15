@@ -2,7 +2,6 @@
 <div id="tenants-list">
 	{% for item in Model.ContentItems %}
 		
-		{% assign image = item.Tenant.Images.MediaParts[0] %}
 		{% assign phone = item.Tenant.Phone.Value %}
 		{% assign email = item.Tenant.Email.Value; %}
 		{% assign website = item.Tenant.Website.Value; %}
@@ -12,7 +11,7 @@
 				<div class="span4">
 					<div class="image-wrapper">
 						{% if image %}
-							<img src="{{ image.MediaUrl }}" alt="{{ image.AlternateText }}"/>
+							<img src="{{ item.Tenant.Tenant.Logo.FirstMediaUrl }}" alt="tenant logo"/>
 						{% endif %}
 					</div>
 				</div>
