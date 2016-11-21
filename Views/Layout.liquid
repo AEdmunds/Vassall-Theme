@@ -15,9 +15,8 @@
 						{% if Model.Header %}
 							{{ Model.Header | Display }}
 						{% endif %}
-						{% assign logoSrc = "//dotneststatic.com/media/vcconferences/_Profiles/1338a03e/bfc1c3db/vassall-logo.png" %}
 						<a class="logo-link" href="{% Href "~/" %}">
-							<img alt="logo" title="bizstrap" src="{{ logoSrc }}">
+							<img alt="logo" title="bizstrap" src="//dotneststatic.com/media/vcconferences/_Profiles/1338a03e/bfc1c3db/vassall-logo.png">
 						</a>
 					</div>
 					<div class="span9">
@@ -112,10 +111,10 @@
 
 					{% elsif Model.AsideSecond %}
 
-						<div class="span9 main-column two-columns-right">
+						<div class="span6 main-column two-columns-right">
 							{{ Model.Content | Display }}
 						</div>
-						<div id="right-sidebar" class="span3 sidebar">
+						<div id="right-sidebar" class="span6 sidebar">
 							{{ Model.AsideSecond | Display }}
 						</div>
 					 
