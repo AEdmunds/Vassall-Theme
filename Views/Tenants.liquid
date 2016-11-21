@@ -10,8 +10,8 @@
 			<div class="row-fluid">
 				<div class="span4">
 					<div class="image-wrapper">
-						{% if image %}
-							<img src="{{ item.Tenant.Tenant.Logo.FirstMediaUrl }}" alt="tenant logo"/>
+						{% if item.Tenant.Logo %}
+							<img src="{{ item.Tenant.Logo.FirstMediaUrl }}" alt="tenant logo"/>
 						{% endif %}
 					</div>
 				</div>
