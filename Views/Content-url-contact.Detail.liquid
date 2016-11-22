@@ -1,0 +1,99 @@
+﻿{% if Model.Title %} 
+	{% PageTitle Model.Title %} 
+{% endif %}
+{% AddClassToCurrentShape "content-item" %}
+{% AddClassToCurrentShape ((string)Model.ContentItem.ContentType).HtmlClassify() %}    
+
+{%  assign phone = Model.ContentItem.ContactUsPage.Phone.Value %}
+{%  assign email = Model.ContentItem.ContactUsPage.Email.Value %}
+{%  assign hoursMonday = Model.ContentItem.ContactUsPage.HoursMonday.Value %}
+{%  assign hoursTuesday = Model.ContentItem.ContactUsPage.HoursTuesday.Value %}     
+{%  assign hoursWednesday = Model.ContentItem.ContactUsPage.HoursWednesday.Value %}     
+{%  assign hoursThursday = Model.ContentItem.ContactUsPage.HoursThursday.Value %}    
+{%  assign hoursFriday = Model.ContentItem.ContactUsPage.HoursFriday.Value %}     
+{%  assign hoursSaturday = Model.ContentItem.ContactUsPage.HoursSaturday.Value %}     
+{%  assign hoursSunday = Model.ContentItem.ContactUsPage.HoursSunday.Value %}
+{%  assign mapUrl = Model.ContentItem.ContactUsPage.GoogleMapsUrl.Value %}
+
+<!-- MAIN CONTENT AREA -->
+        <div class="main-content">
+            <div class="container">                             
+                <div class="row show-grid">
+                    <div class="span12" data-original-title="">
+                        <div class="col-wrapper">                        
+                        <div class="row show-grid">
+                            <div class="contact-form span8">
+                                <div id="result">
+
+                                </div>
+                                
+                                <iframe style="width: 100%; height: 600px; border: none;" 
+                                        src="{{ mapUrl }}">
+                                </iframe>
+                            </div>
+
+
+                                <div class="contact-info span4">
+                                    <h2>The Vassall centre</h2>
+
+                                    <address>
+                                        {{ Model.ContentItem.ContactUsPage.Street.Value }},<br />
+                                        {{ Model.ContentItem.ContactUsPage.City.Value }},<br />
+                                        {{ Model.ContentItem.ContactUsPage.Postcode.Value }}<br />
+                                        Phone: {{ phone }}<br />
+                                        Email: <a href="mailto:{{ email }}">{{ email }}</a><br />
+                                    </address>
+
+                                    <ul class="socials unstyled">
+                                        <li><a href="http://www.linkedin.com/company/vc-conferences-ltd" target="_blank" class="linkedin"></a></li>
+                                    </ul>
+
+                                    <h2>Hours of Business Operation</h2>
+                                    <table class="table">
+                                        <tbody>
+                                            <tr>
+                                                <td class="small">Monday:</td>
+                                                <td class="bold">{{ hoursMonday }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="small">Tuesday:</td>
+                                                <td class="bold">{{ hoursTuesday }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="small">Wednesday:</td>
+                                                <td class="bold">{{ hoursWednesday }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="small">Thursday:</td>
+                                                <td class="bold">{{ hoursThursday }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="small">Friday:</td>
+                                                <td class="bold">{{ hoursFriday }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="small">Saturday:</td>
+                                                <td class="bold">{{ hoursSaturday }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="small">Sunday:</td>
+                                                <td class="bold">{{ hoursSunday }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    
+                                    <p>
+                                        Please note above are the hours when the Centre is operated by caretakers and office staff. The Centre is open for pre-booked meetings and conferences outside of these hours and on weekends. 
+                                    </p>
+                                    
+                                    
+                                    
+
+                                </div>
+                        </div>               
+                  </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+</div>
