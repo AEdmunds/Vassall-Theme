@@ -1,43 +1,43 @@
 	{% capture faviconUrl %}{% Href "~/Themes/Dotnest-BisStrap.1.3/Images/favicon.ico" %}{% endcapture %}
 	{% RegisterLink, Href: faviconUrl, Rel: "shortcut icon", Title: "favicon", Type: "image/x-icon" %}
      
+	{% comment %}
+	Styles
+	***************************************************************
+	{% endcomment %}
 	{% Style "http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,700italic" %}
 	{% Style "rs-plugin/css/settings.css" %}
-	{% Style "rs-responsive.css %}
+	{% Style "rs-responsive.css" %}
     <!--  revolution slider plugin : end -->
     
-    {% Style "bootstrap.min.css %}
-    {% Style "custom.css %}
-    {% Style "styler.css %}
-    {% Style "isotope.css %}
-    {% Style "color_scheme.css %}
-    {% Style "font-awesome.css %}
-    {% Style "font-awesome-ie7.css %}
-    {% Style "flexslider.css %}
-    {% Style "jquery.fancybox.css %}
-    {% Style "overwrite.css %}
+    {% Style "bootstrap.min.css" %}
+    {% Style "custom.css" %}
+    {% Style "styler.css" %}
+    {% Style "isotope.css" %}
+    {% Style "color_scheme.css" %}
+    {% Style "font-awesome.css" %}
+    {% Style "font-awesome-ie7.css" %}
+    {% Style "flexslider.css" %}
+    {% Style "jquery.fancybox.css" %}
+    {% Style "overwrite.css" %}
 
-
-    /* Scripts
-    ***************************************************************/
-
-
-
-    // script files
-
-
+	{% comment %}
+	Scripts
+	***************************************************************
+	{% endcomment %}
+	
     {% ScriptRequire "jQuery", head %}
 
-    {% Script "jquery-ui.min.js %}
-    {% Script "bootstrap.js %}
-    {% Script "jquery.flexslider-min.js %}
-    {% Script "jquery.isotope.js %}
-    {% Script "jquery.fancybox.pack.js %}
-    {% Script "rs-plugin/jquery.themepunch.plugins.min.js %}
-    {% Script "rs-plugin/jquery.themepunch.revolution.min.js %}
-    {% Script "revolution.custom.js %}
-    {% Script "custom.js %}
-    {% Script "access.js %}
+    {% Script "jquery-ui.min.js" %}
+    {% Script "bootstrap.js" %}
+    {% Script "jquery.flexslider-min.js" %}
+    {% Script "jquery.isotope.js" %}
+    {% Script "jquery.fancybox.pack.js" %}
+    {% Script "rs-plugin/jquery.themepunch.plugins.min.js" %}
+    {% Script "rs-plugin/jquery.themepunch.revolution.min.js" %}
+    {% Script "revolution.custom.js" %}
+    {% Script "custom.js" %}
+    {% Script "access.js" %}
 	 
 	 
 	<div id="wrap">
