@@ -13,7 +13,7 @@
   <Match Path="/About">
     <Place Parts_Common_Metadata="-"/>
   </Match>
--->
+  -->
 
     <Match DisplayType="Detail">
       <!-- hide meta data -->
@@ -49,5 +49,12 @@
 
   </Match>
 
-
+  <Place Widget="Content:5"/>
+  <Place Content="Content:7"/>
+  <Match ContentType="Page">
+	<Match DisplayType="Detail">
+		
+	</Match>	
+  </Match>		
+  
 </Placement>
