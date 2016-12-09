@@ -2,7 +2,7 @@
 <div class="events-page">
     <h2>Upcoming Events</h2>
 	{% assign i = 0 %}
-    {% foreach item in Model.ContentItems %}
+    {% for item in Model.ContentItems %}
        
         {% assign imageUrl = item.Event.ImageUrl.Value %}
         {% assign url = item.Event.Url.Value %}

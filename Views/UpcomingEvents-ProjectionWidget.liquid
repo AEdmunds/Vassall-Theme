@@ -2,7 +2,7 @@
 <div class="sidebar-news-widget sidebar-block">
     <h2>Upcoming events</h2>
 	{% assign i = 7 %}
-    {% foreach item in Model.ContentItems %}
+    {% for item in Model.ContentItems %}
 		{% assign imageUrl = item.Event.ImageUrl.Value %}
         <ul>
             <li>

@@ -57,4 +57,9 @@
 	</Match>	
   </Match>		
   
+   <Match Path="/Tenants" ContentType="ProjectionPage">
+    <Place Parts_Common_Body="Content:0"/>
+  </Match>
+
+  
 </Placement>
