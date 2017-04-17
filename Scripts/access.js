@@ -76,9 +76,9 @@
   setContrast = function(newContrast) {
     var colours, data, newLogo;
     if (newContrast.startsWith("black")) {
-      newLogo = '../../themes/Dotnest-BizStrap.1.3/content/img/vassall-logo-bw.gif';
+      newLogo = '//dotneststatic.com/media/vcconferences/MediaTheme/Content/img/vassall-logo-bw.gif';
     } else {
-      newLogo = '../../themes/Dotnest-BizStrap.1.3/content/img/vassall-logo.png';
+      newLogo = '//dotneststatic.com/media/vcconferences/MediaTheme/Content/img/vassall-logo.pn';
     }
     colours = newContrast.split('-on-');
     data = {
@@ -123,7 +123,7 @@
 
   $('.btn-contrast').click(function() {
     var newContrast;
-    newContrast = this.InnerHTML;
+    newContrast = this.id;
     setContrast(newContrast);
     return false;
   });

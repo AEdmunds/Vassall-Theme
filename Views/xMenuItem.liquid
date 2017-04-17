@@ -1,0 +1,75 @@
+{% if Model.Text %}
+	    
+	{% if Model.Content.ContentItem.ContentType == "ContentMenuItem" %}
+		
+		{% assign borderColor = Model.Content.ContentItem.ContentMenuItem.BorderColour.Value %}
+		{% assign accessKey = Model.Content.ContentItem.ContentMenuItem.AccessKey.Value %}
+		
+	{% endif %}
+	{% if Model.Content.ContentItem.ContentType == "MenuItem" %}
+	
+		{% assign borderColor = Model.Content.ContentItem.MenuItem.BorderColour.Value %}
+		{% assign accessKey = Model.Content.ContentItem.MenuItem.AccessKey.Value %}
+
+	{% endif %}
+
+    {% assign id = "li-" + Model.Text.ToString().ToLower().Replace(" ", "-") %}
+    
+	<li>
+    
+		{% if borderColor %%}
+       
+			{% assign pageName = Model.Text.ToString() %} 
+            
+            
+			<style>
+				li#{{ id }} {
+					border-top: 2px solid {{ borderColor }} 
+					border-bottom: 2px solid {{ borderColor }}
+				}
+				li#{{ id }} a:active {
+					background-color: {{ borderColor }};
+					color: auto;
+				}
+				li#{{ id }} id:hover a{
+					border-bottom: 6px solid {{ borderColor }}; 
+				}
+				li.active#{{ id }} a{
+					border-bottom: 6px solid {{ borderColor }}; 
+				}
+				
+				#{{ pageName }} .text-divider7 span{
+					background-color: @borderColor;
+				} 
+				
+					
+			</style>
+				
+		{% endif %}    
+        
+		{% assign items = Model %}
+        {% if items.Any %}
+           <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{ Model.Text }}&nbsp;<b class="caret"></b></a>
+        {% else %}
+           {% if accessKey %}
+                <a href="{{ Model.Href }}" accesskey="{{ accessKey }}" >{{ Model.Text }}</a>    
+           {% else %}
+                <a href="{{ Model.Href }}" >{{ Model.Text }}</a>    
+           {% endif %}
+            
+            
+        {% endif %}
+
+        {%if items.Any %}
+            <ul class="dropdown-menu">
+                {{ Model | DisplayChildren }}
+            </ul>
+        {% endif %}
+    <li>
+
+{% else %}		
+	{{ Model | DisplayChildren }}
+{% endif %}
+
+    
+        

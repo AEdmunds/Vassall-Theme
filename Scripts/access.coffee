@@ -58,9 +58,10 @@ $('.text-size-reset').click ->
 setContrast = (newContrast)->
      ## get logo 
     if newContrast.startsWith("black")
-        newLogo = '../../themes/Dotnest-BizStrap.1.3/content/img/vassall-logo-bw.gif'     
+        newLogo = '//dotneststatic.com/media/vcconferences/MediaTheme/Content/img/vassall-logo-bw.gif' 
+                      
     else
-        newLogo = '../../themes/Dotnest-BizStrap.1.3/content/img/vassall-logo.png'
+        newLogo = '//dotneststatic.com/media/vcconferences/MediaTheme/Content/img/vassall-logo.pn'
 
     ## set colours         
     colours = newContrast.split('-on-') 
@@ -104,7 +105,7 @@ $("#cycle-contrast-form #contrast").click ->
     return false
 
 $('.btn-contrast').click ->
-    newContrast = this.InnerHTML    
+    newContrast = this.id    
     setContrast(newContrast)
     return false 
 

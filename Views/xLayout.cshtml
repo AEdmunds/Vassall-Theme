@@ -1,0 +1,276 @@
+﻿@{
+    /* Global includes for the theme
+    ***************************************************************/
+
+	RegisterLink(new Orchard.UI.Resources.LinkEntry {Type = "image/x-icon", Rel = "shortcut icon", Href = Url.Content("~/Themes/Dotnest-BizStrap.1.3/Images/favicon.ico")});
+	
+    SetMeta(httpEquiv: "X-UA-Compatible", content: "IE=edge,chrome=1");
+
+    @*<!--  revolution slider plugin : begin -->
+    Style.Include("rs-plugin/css/settings.css");
+    Style.Include("rs-responsive.css");
+    <!--  revolution slider plugin : end -->
+    
+    Style.Include("bootstrap.min.css");
+    Style.Include("custom.css");
+    Style.Include("styler.css");
+    Style.Include("isotope.css");
+    Style.Include("color_scheme.css");
+    Style.Include("http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,700italic");
+    Style.Include("font-awesome.css");
+    Style.Include("font-awesome-ie7.css");
+    Style.Include("flexslider.css");
+    Style.Include("jquery.fancybox.css");
+    Style.Include("overwrite.css");*@
+   
+    if (Session["contrast"] != null) {
+        Style.Include(string.Format("contrast/{0}.css", Session["contrast"]));
+    }
+
+    if (Session["TextSize"] != null) {
+        var emsize = string.Format("{0}em", Session["TextSize"]);
+        <style>
+            body {
+                font-size: @emsize;
+            }    
+        </style>
+        
+    }
+
+    
+    /* Some useful shortcuts or settings
+    ***************************************************************/
+
+    Func<dynamic, dynamic> Zone = x => Display(x); // Zone as an alias for Display to help make it obvious when we're displaying zones
+
+    /* Layout classification based on filled zones
+    ***************************************************************/
+
+    /* Inserting some ad hoc shapes
+    ***************************************************************/
+
+    //WorkContext.Layout.Header.Add(New.Branding(), "5"); // Site name and link to the home page
+    //WorkContext.Layout.Footer.Add(New.BadgeOfHonor(), "5"); // Powered by Orchard
+    //WorkContext.Layout.Footer.Add(New.User(), "10"); // Login and dashboard links
+
+    /* Last bit of code to prep the layout wrapper
+    ***************************************************************/
+    
+    //Model.Id = "layout-wrapper";
+    //var tag = Tag(Model, "div"); // using Tag so the layout div gets the classes, id and other attributes added to the Model
+}
+
+
+        <div id="wrap">
+            <!-- THE LINE AT THE VERY TOP OF THE PAGE -->
+            <div class="top_line"></div>
+            <!-- HEADER AREA -->
+            <header>
+                <div class="container">
+                    <div class="row">
+                        <!-- HEADER: LOGO AREA -->
+                        <div class="span3 logo">
+                            @if (Model.Header != null) {
+                                @Zone(Model.Header)
+                            }
+                        </div>
+                        <div class="span9">
+                            <div class="row-fluid">
+                                <div class="span8 site-title">
+                                    <h1>
+                                        The Vassall Centre
+                                    </h1>
+                                    <p>
+                                        Bristol's premier barrier-free workspace and conference centre
+                                    </p>
+                                </div>
+                                <div class="span4">
+                                    <!-- HEADER: PHONE NUMBER -->
+                                    <p class="head_phone">
+                                        <a href="tel:0117-965-9630">0117 965 9630</a>
+                                    </p>
+                                    <p class="head_email">
+                                        <a href="mailto:vassall@vcconferences.co.uk">vassall@vcconferences.co.uk</a>
+                                    </p>
+                                </div>
+                                <!-- HEADER: SOCIAL ICONS -->
+                                @*  <ul class="socials unstyled">
+                                        <li id="linked-in-follow">
+                                            <script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+                                            <script type="IN/FollowCompany" data-id="3333263" data-counter="none"></script>
+                                        </li>
+                                   <li><a class="twitter" href="#"></a></li>
+                                <li><a class="facebook" href="#"></a></li>
+                                <li><a class="linkedin" href="#"></a></li>
+                                <li><a class="google_plus" href="#"></a></li>
+                                </ul>*@
+                            </div>
+                            <div class="row-fluid">
+                                <div class="access span12">
+                                    <div class="row-fluid">
+                                        <div class="text-size offset8 span2">
+											<button class="btn btn-mini text-size-reset">text</button>
+											<button class="btn btn-mini text-size-smaller">-</button>
+											<button class="btn btn-mini text-size-bigger">+</button>
+                                        </div>
+                                        <div class="contrast span2">
+											<Button id="contrast"  class="btn btn-mini">Contrast</Button> 
+											<Button id="cycle-contrast" class="btn btn-mini btn-cycle"> </Button>
+											<input id="contrast-link" type="hidden" value="@Url.Content(@"~/accessibility/web-site")"/>
+									    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                    </div>
+                </div>
+                <!-- HEADER: PRIMARY SITE NAVIGATION -->
+                <div class="container">
+                    @if (Model.Navigation != null) {
+                        @Zone(Model.Navigation)                      
+                    }
+                </div>
+            </header>
+        
+            <div class="main-content">
+                <div class="container">
+                
+                    @if (Model.BeforeMain != null) {
+                        <div id="layout-before-main" class="group">
+                            @Zone(Model.BeforeMain)
+                        </div>
+                    }
+       
+                
+                    @if (Model.Messages != null) {
+                    
+                        @Zone(Model.Messages)  
+                    
+                        
+                       
+                    
+                    }
+                    
+                
+                    @if (Model.Featured != null)
+                    {
+                        <div class="row show-grid clear-both">
+                            <div class="span12 main-column one-column">
+                                @Zone(Model.Featured)
+                            </div>
+                        </div>
+                    }
+                       
+                    <div class="row show-grid clear-both">
+                    
+                        @if ((Model.AsideFirst != null) && (Model.AsideSecond != null))
+                        {
+                            <div id="left-sidebar" class="span3 sidebar">
+                                @Zone(Model.AsideFirst)
+                            </div>
+                            <div class="span6 main-column three-columns-central">
+                                @Zone(Model.Content)
+                            </div>
+                            <div id="right-sidebar" class="span3 sidebar">
+                                @Zone(Model.AsideSecond)
+                            </div>
+                
+                        }
+                        else if (Model.AsideSecond != null){
+                
+                       
+                            <div class="span9 main-column two-columns-right">
+                                @Zone(Model.Content)
+                            </div>
+                            <div id="right-sidebar" class="span3 sidebar">
+                                @Zone(Model.AsideSecond)
+                            </div>
+                        }
+                        else if (Model.AsideFirst != null)
+                        {
+                            <div id="left-sidebar" class="span3 sidebar">
+                                @Zone(Model.AsideFirst)
+                            </div>
+                            <div class="span9 main-column two-columns-left">
+                                @Zone(Model.Content)
+                            </div>
+                        
+                        }
+                        else {
+                            <div class="span12 main-column one-column">
+                                @Zone(Model.Content)    
+                            </div>
+                        }
+                    </div>
+                
+                    @if (Model.AfterMain != null) {
+                        <div id="layout-after-main" class="group">
+                            @Zone(Model.AfterMain)
+                        </div>
+                    }
+        
+                
+
+                </div>
+            </div>
+            <div id="push"></div>
+        </div>
+
+        <footer id="footer">
+            <div class="footer-wrapper">
+                <div class="container">
+                    <div class="row show-grid">
+                       
+                        @if (Model.Footer != null) {
+                            <div class="span12">
+                                @Zone(Model.Footer)
+                            </div>
+                        }
+                                
+                                
+                        <!-- FOOTER: LOGO -->
+
+                        @*<div class="span3">
+                            @if (Model.FooterQuadFirst != null) {
+                                @Zone(Model.FooterQuadFirst)
+                            }
+                        </div>
+                            
+                        <!-- FOOTER: ABOUT US -->
+                        <div class="span3">
+                                @if (Model.FooterQuadSecond != null) {
+                                @Zone(Model.FooterQuadSecond)
+                            }
+                        </div>
+                            
+                        <!-- FOOTER: NAVIGATION LINKS -->
+                        <div class="span3">
+                                @if (Model.FooterQuadThird != null) {
+                                @Zone(Model.FooterQuadThird)
+                            }
+                        </div>
+                        <div class="span3">
+                                @if (Model.FooterQuadFourth != null) {
+                                @Zone(Model.FooterQuadFourth)
+                            }
+                        </div>*@
+                            
+                    </div>
+                </div>
+            </div>
+          
+           @* <div class="footer-bottom">
+                <div class="container">
+                    <div class="row show-grid">
+<!-- FOOTER: COPYRIGHT TEXT -->
+                        <div class="span12">
+                            <p> The Vassall Conference Center Copyright 2013.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+        </footer>
+	<!-- END FOOTER -->
+  
+
