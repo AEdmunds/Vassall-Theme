@@ -61,7 +61,7 @@ setContrast = (newContrast)->
         newLogo = '//dotneststatic.com/media/vcconferences/MediaTheme/Content/img/vassall-logo-bw.gif' 
                       
     else
-        newLogo = '//dotneststatic.com/media/vcconferences/MediaTheme/Content/img/vassall-logo.pn'
+        newLogo = '//dotneststatic.com/media/vcconferences/MediaTheme/Content/img/vassall-logo.png'
 
     ## set colours         
     colours = newContrast.split('-on-') 

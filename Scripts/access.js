@@ -78,7 +78,7 @@
     if (newContrast.startsWith("black")) {
       newLogo = '//dotneststatic.com/media/vcconferences/MediaTheme/Content/img/vassall-logo-bw.gif';
     } else {
-      newLogo = '//dotneststatic.com/media/vcconferences/MediaTheme/Content/img/vassall-logo.pn';
+      newLogo = '//dotneststatic.com/media/vcconferences/MediaTheme/Content/img/vassall-logo.png';
     }
     colours = newContrast.split('-on-');
     data = {

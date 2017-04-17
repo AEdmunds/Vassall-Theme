@@ -185,11 +185,11 @@ header .container .row .span9 {
   border-radius: 0; }
 
 .btn-cycle {
-  background-image: url(../content/img/cycle-contrast.png);
+  /*background-image: url(../content/img/cycle-contrast.png);
   background-repeat: no-repeat;
   background-position-x: 3px;
-  background-position-y: 3px;
-  width: 22px;
+  background-position-y: 3px;*/
+  width: 110px;
   height: 22px;
   margin-left: 0; }
 
